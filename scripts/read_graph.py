@@ -11,7 +11,6 @@
 #----------------------------------------------------------------------------#
 import os
 import numpy as np
-import sys
 
 WORKING_DIR = os.path.abspath(".")
 
@@ -25,6 +24,7 @@ HUMAN_HIGH_QUALITY = os.path.join(DATA_PATH, "Human_HighQuality.txt")
 
 # 1.2 - Data structure for storing the graph
 
+#----------------------------------------------------------------------------#
 ## Dictionnary (1.2.1)
 
 def read_interaction_file_dict(file : str) -> dict :
@@ -50,6 +50,7 @@ def read_interaction_file_dict(file : str) -> dict :
     print(f"Number of interactions: {interactions_count_int} \nDictionary obtained: {interactions_dict}")
     return interactions_dict
 
+#----------------------------------------------------------------------------#
 ## List (1.2.2)
 
 def read_interaction_file_list(file : str) -> list :
@@ -72,6 +73,7 @@ def read_interaction_file_list(file : str) -> list :
     print(f"Number of interactions: {interactions_count} \nList of tupples obtained: {interactions_count}")
     return interactions_list
 
+#----------------------------------------------------------------------------#
 ## Adjacency Matrix (1.2.3)
 
 def read_interaction_file_mat(file_name):
@@ -114,8 +116,8 @@ def read_interaction_file_mat(file_name):
     print(f"Number of interactions: {interactions_count_int}\n Resulting matrix:\n{matrix}")
     return matrix, vertices
 
+#----------------------------------------------------------------------------#
 ## Triplet (1.2.4)
-
 
 def is_interaction_file(file_str):
     """
@@ -150,6 +152,8 @@ def is_interaction_file(file_str):
         
     return True
 
+#----------------------------------------------------------------------------#
+# Main
 
 if __name__ == "__main__" :
     print(read_interaction_file_dict(TEST_FILE))
