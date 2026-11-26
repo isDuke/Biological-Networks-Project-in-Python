@@ -40,14 +40,14 @@ def read_interaction_file_dict(file : str) -> dict :
     """
 
     with open(file, "r", encoding='utf-8') as fh :
-        interactions_count = int(next(fh)) # Skip the first line, which corresponds to the number of interactions
+        interactions_count_int = int(next(fh)) # Skip the first line, which corresponds to the number of interactions
         interactions_dict = {}
 
         for line in fh:
             key, value = line.split()
-            interactions_dict.setdefault(key, []).append(value)
+            interactions_dict.setdefault(value, []).append(key)
 
-    print(f"Number of interactions: {interactions_count} \nDictionary obtained: {interactions_dict}")
+    print(f"Number of interactions: {interactions_count_int} \nDictionary obtained: {interactions_dict}")
     return interactions_dict
 
 ## List (1.2.2)
@@ -96,7 +96,7 @@ def read_interaction_file_mat(file_name):
             The sorted list of proteins present in the graph.
     """
     with open(file_name) as file:
-        interactions_count = int (next(file))
+        interactions_count_int = int (next(file))
         lines = [line.split() for line in file if line.strip()]
 
 
@@ -111,7 +111,7 @@ def read_interaction_file_mat(file_name):
         i, j = indices[vertex_1], indices[vertex_2]
         matrix[i, j] = matrix[j, i] = 1
 
-    print(f"Number of interactions: {interactions_count}\n Resulting matrix:\n{matrix}")
+    print(f"Number of interactions: {interactions_count_int}\n Resulting matrix:\n{matrix}")
     return matrix, vertices
 
 ## Triplet (1.2.4)
